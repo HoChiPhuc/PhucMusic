@@ -5,19 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phuc Music</title>
 </head>
-<body style="background-color: rgb(50, 50, 50); text-align: center; font-family: Arial, sans-serif;">
-
-    <div style="margin-top: 50px;">
-        <h2 style="background-color: rgb(100, 100, 100); padding: 10px; border-radius: 10px; display: inline-block;">
-            <b>Mãi Mãi Không Phải Anh</b>
-        </h2>
+<body style="background-color: rgb(0, 117, 127);">
+    <div style="text-align: center; font-family: cursive; margin-top: 50px;">
+        <h2 style="background-color: rgb(101, 187, 187); display: inline-block; border-radius: 10px;">Danh sách nhạc</h2>
     </div>
 
-    <div style="margin-top: 20px;">
-        <audio controls>
-            <source src="mai-mai-khong-phai-anh.mp3" type="">
-        </audio>
+    <div style="display: flex; align-items: center;">
+        <!-- Ảnh nằm bên trái -->
+        <div style="margin-right: 20px;">
+            <img src="imanages/Sơn.jpg" style="width: 200px; height: auto;">
+        </div>
+    
+        <!-- Danh sách nhạc nằm bên phải -->
+        <ol style="margin: 0; padding: 0; list-style-position: inside;">
+            <li><a href="#" onclick="playSong('mai-mai-khong-phai-anh.mp3')">Mãi mãi không phải anh</a></li>
+            <li><a href="#" onclick="playSong('SUYT-NUA-THI.mp3')">Suýt nữa thì</a></li>
+            <li><a href="#" onclick="playSong('nguoi-dung-sau-hanh-phuc.mp3')">Người đứng sau hạnh phúc</a></li>
+        </ol>
     </div>
+    
 
+    <h2 style="font-family: cursive;">Trình phát nhạc</h2>
+    <audio id="audioPlayer" controls>
+        <source id="audioSource" src="" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ phát nhạc.
+    </audio>
+
+    <script>
+        function playSong(songSrc) {
+            const audioSource = document.getElementById("audioSource");
+            const player = document.getElementById("audioPlayer");
+
+            // Cập nhật đường dẫn file nhạc
+            audioSource.src = songSrc;
+
+            // Tải lại audio với bài hát mới
+            player.load();
+            
+            // Phát nhạc
+            player.play();
+        }
+    </script>
 </body>
 </html>
